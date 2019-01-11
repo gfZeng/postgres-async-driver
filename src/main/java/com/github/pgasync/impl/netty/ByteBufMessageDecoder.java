@@ -65,6 +65,7 @@ class ByteBufMessageDecoder extends ByteToMessageDecoder {
             }
         } catch (Throwable t) {
             // broad catch as otherwise the exception is silently dropped
+            t.printStackTrace();
             ctx.fireExceptionCaught(t);
         }
     }

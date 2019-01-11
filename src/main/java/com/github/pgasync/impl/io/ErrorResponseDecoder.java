@@ -52,9 +52,8 @@ public class ErrorResponseDecoder implements Decoder<ErrorResponse> {
         String code = null;
         String message = null;
 
-        byte[] field = new byte[255];
         for (byte type = buffer.get(); type != 0; type = buffer.get()) {
-            String value = getCString(buffer, field);
+            String value = getCString(buffer);
             if (type == (byte) 'S') {
                 level = value;
             } else if (type == 'C') {

@@ -61,11 +61,10 @@ public class RowDescriptionDecoder implements Decoder<RowDescription> {
 
     @Override
     public RowDescription read(ByteBuffer buffer) {
-        byte[] bytes = new byte[255];
         ColumnDescription[] columns = new ColumnDescription[buffer.getShort()];
 
         for (int i = 0; i < columns.length; i++) {
-            String name = getCString(buffer, bytes);
+            String name = getCString(buffer);
             buffer.position(buffer.position() + 6);
             Oid type = Oid.valueOfId(buffer.getInt());
             buffer.position(buffer.position() + 8);

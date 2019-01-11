@@ -51,8 +51,7 @@ public class CommandCompleteDecoder implements Decoder<CommandComplete> {
 
     @Override
     public CommandComplete read(ByteBuffer buffer) {
-        byte[] tmp = new byte[255];
-        String tag = getCString(buffer, tmp);
+        String tag = getCString(buffer);
         return new CommandComplete(tag);
     }
 

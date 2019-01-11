@@ -29,8 +29,7 @@ public class NotificationResponseDecoder implements Decoder<NotificationResponse
 
     @Override
     public NotificationResponse read(ByteBuffer buffer) {
-        byte[] chars = new byte[255];
-        return new NotificationResponse(buffer.getInt(), getCString(buffer, chars), getCString(buffer, chars));
+        return new NotificationResponse(buffer.getInt(), getCString(buffer), getCString(buffer));
     }
 
     @Override
